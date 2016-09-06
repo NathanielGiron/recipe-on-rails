@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-md-8 col-md-offset-2 stream-items">
+    <% @recipes.each do |recipe| %>
+    <section class="stream">
+      <div class="row">
+        
+        <div class="col-md-1">
+          
+        </div>
+        
+        <div class="col-md-11">
+          <button class="btn btn-danger btn-sm pull-right"><i class="fa fa-trash-o"></i></button>
+          <h4><small>@<%= recipe.chef.chefname %></small></h4>
+          <h3><%= link_to recipe.name, "" %></h3>
+          <h3><small><%= recipe.summary %></small></h3>
+          <small><%= time_ago_in_words(recipe.created_at) %> ago</small>
+        </div>
+        
+      </div>
+    </section>
+    <% end %>
+  </div>
+</div>
