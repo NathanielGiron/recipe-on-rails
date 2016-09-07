@@ -1,0 +1,31 @@
+<div class="container">
+<% if @recipe.errors.any? %>
+<div class="row">
+	<div class="alert alert-danger col-md-8 col-md-offset-2">
+		<h5>Please correct the following errors:</h5>
+		<ul>
+			<% @recipe.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<% end %>
+
+  <h2>Create a new Recipe</h2>
+  <div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+      <%= form_for @recipe do |f| %>
+        <%= f.label :Name %>
+        <%= f.text_field :name %>
+        <%= f.label :Summary %>
+        <%= f.text_field :summary %>
+        <%= f.label :Description %>
+        <%= f.text_area :description, rows: 10%>
+      
+        <%= f.submit(@recipe.new_record? ? "Create Recipe" : "Edit Recipe", class: "btn btn-success") %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
