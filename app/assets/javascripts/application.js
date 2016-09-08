@@ -16,6 +16,8 @@
 //= require jquery_ujs
 //= require toastr
 //= require_tree .
+//= require sweet-alert
+//= require sweet-alert-confirm
 
 $(document).ready(function() {
 

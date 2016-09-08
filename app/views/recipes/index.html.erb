@@ -9,7 +9,9 @@
         </div>
         
         <div class="col-md-11">
-          <button class="btn btn-danger btn-sm pull-right"><i class="fa fa-trash-o"></i></button>
+          <%= link_to "<i class=\"fa fa-trash-o\"></i>".html_safe, recipe_path(recipe), method: :delete, 
+                                                        data: {confirm: "Are you sure you want to delete the recipe?"}, 
+                                                        class: "btn btn-sm btn-danger pull-right" %>
           <h4><small>@<%= recipe.chef.chefname %></small></h4>
           <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
           <h3><small><%= recipe.summary %></small></h3>
