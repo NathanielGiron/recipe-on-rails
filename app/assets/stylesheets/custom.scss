@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$b-radius: 4px;
+$white-color: #fff;
+$bor-color: #dce0e0;
+
 body {
   background-color: #edefed;
   font-family: 'Roboto', sans-serif;
@@ -8,88 +12,88 @@ body {
   padding-top:50px;
 }
 
+/****Nav****/
 .nav-white {
-  background:#fff;
+  background: $white-color;
 }
 .navbar-default .navbar-nav > li > a:hover {
   background-color: #f5f5f5;
 }
 .navbar-default .navbar-nav > li > a {
-  border-left: 1px solid #dce0e0;
+  border-left: 1px solid $bor-color;
 }
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-  border-color: #dce0e0;
+  border-color: $bor-color;
 }
-
-.btn {
-  border-radius: 3px;
-}
+/****END-Nav****/
 
 .hero {
   min-height: 450px;
+  color: $white-color;
   background: asset-url("banner.jpg") no-repeat;
   background-size: cover;
-  
   text-align: center;
-  color: #fff;
-}
-.hero-inner {
-  padding-top: 50px;
+  .hero-inner {
+    padding-top: 50px;
+  }
 }
 
 .featured {
-  min-height: 320px;
   padding:0;
-  background: #fff;
-  border-radius: 4px;
-}
-.featured-image {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
   min-height: 320px;
-  background: asset-url("discover.jpg")
-}
-.featured-desc-inner {
-  padding: 20px;
+  background: $white-color;
+  border-radius: $b-radius;
+  .featured-image {
+    border-top-left-radius: $b-radius;
+    border-bottom-left-radius: $b-radius;
+    min-height: 320px;
+    background: asset-url("discover.jpg")
+  }
+  .featured-desc-inner {
+    padding: 20px;
+  }
 }
 
-.footer {
-  margin-top: 10px;
-  padding-top: 5px;
-}
-
-.stream-items {
-  margin-top: 10px;
-  border: 1px solid #dce0e0;
-  border-radius: 4px;
-  background: #fff;
-  padding: 0;
-}
-.stream:not(:first-child) {
-  border-top: 1px solid #dce0e0;
-}
 .stream {
+  margin-top: 10px;
+  border: 1px solid $bor-color;
+  border-radius: 4px;
+  background: $white-color;
+  padding: 0;
+  .recipe-item {
+    padding: 20px;
+    &:not(:first-child) {
+      border-top: 1px solid $bor-color;
+    }
+    h3, h4 {
+      margin-top: 0;
+    }
+  }
+}
+
+.recipe-directions {
+  border: 1px solid $bor-color;
+  background: $white-color;
+  border-radius: 4px;
   padding: 20px;
 }
-.stream h3 {
-  margin-top: 0;
-}
-.stream h4 {
-  margin-top: 0;
+
+/****MISC****/
+.btn {
+  border-radius: 3px;
 }
 .gravatar {
   padding: 2px;
-  border: 1px solid #ddd;
+  border: 1px solid $bor-color;
   border-radius: 100%;
 }
 .toast-top-right {
 	top: 55px;
 	right: 8px;
 }
+/****END-MISC****/
 
-.recipe-directions {
-  border: 1px solid #dce0e0;
-  background: #fff;
-  border-radius: 4px;
-  padding: 20px;
+.footer {
+  margin-top: 10px;
+  padding-top: 5px;
 }
