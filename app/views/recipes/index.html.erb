@@ -1,4 +1,7 @@
 <div class="container">
+  
+  <div align="center"><%= will_paginate %></div>
+  
   <div class="col-md-8 col-md-offset-2 stream">
     <% @recipes.each do |recipe| %>
     <section class="recipe-item">
@@ -33,4 +36,6 @@
     </section>
     <% end %>
   </div>
+  
+  <div align="center"><%= will_paginate %></div>
 </div>

@@ -55,7 +55,6 @@ body {
 }
 
 .stream {
-  margin-top: 10px;
   border: 1px solid $bor-color;
   border-radius: 4px;
   background: $white-color;
@@ -93,6 +92,9 @@ body {
 .toast-top-right {
 	top: 55px;
 	right: 8px;
+}
+div.pagination {
+  margin: 0;
 }
 /****END-MISC****/
 
