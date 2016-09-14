@@ -16,6 +16,17 @@
           <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
           <h3><small><%= recipe.summary %></small></h3>
           <small><%= time_ago_in_words(recipe.created_at) %> ago</small>
+          
+          <div class="pull-right">
+            <%= link_to like_recipe_path(recipe, like: true), method: :post do %>
+              <i class="fa fa-thumbs-o-up"></i> <%= recipe.thumbs_up_total %>
+            <% end %>
+            &nbsp;&nbsp;
+            <%= link_to like_recipe_path(recipe, like: false), method: :post do %>
+              <i class="fa fa-thumbs-o-down"></i> <%= recipe.thumbs_down_total %>
+            <% end %>
+          </div>
+          <br>
         </div>
         
       </div>

@@ -76,6 +76,9 @@ body {
   background: $white-color;
   border-radius: 4px;
   padding: 20px;
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 /****MISC****/

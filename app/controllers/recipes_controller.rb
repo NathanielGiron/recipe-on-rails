@@ -41,8 +41,19 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-      flash[:success] = "Recipe was successfully deleted!"
+      flash[:error] = "Recipe was successfully deleted!"
       redirect_to recipes_path
+  end
+  
+  def like
+    @recipe = Recipe.find(params[:id])
+    Like.create(like: params[:like], chef: Chef.first, recipe: @recipe)
+    if params[:like] == "true"
+      flash[:success] = "You liked this recipe."
+    else
+      flash[:warning] = "You disliked this recipe."
+    end
+    redirect_to :back
   end
   
   private

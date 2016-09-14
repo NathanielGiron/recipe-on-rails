@@ -14,9 +14,13 @@
       <%= f.text_field :summary, class: "form-control" %>
     </div>
     
-     <div class="form-group">
-      <label for=""><%= f.label :description %></label>
-      <%= f.text_area :description, rows: 10, class: "form-control" %>
+    <div class="form-group">
+      <div class="control-label">
+        <%= f.label :description %>
+      </div>
+      <div class="">
+        <%= f.text_area :description, rows: 10, class: "form-control" %>
+      </div>
     </div>
     
     <%= f.submit(@recipe.new_record? ? "Create Recipe" : "Edit Recipe", class: "btn btn-success") %>

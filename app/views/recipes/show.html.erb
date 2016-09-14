@@ -14,6 +14,17 @@
           <strong>Directions:</strong>
         </p>
         <%= simple_format(@recipe.description) %>
+        
+        <div class="pull-right">
+          <%= link_to like_recipe_path(@recipe, like: true), method: :post do %>
+            <i class="fa fa-thumbs-o-up"></i> <%= @recipe.thumbs_up_total %>
+          <% end %>
+          &nbsp;&nbsp;
+          <%= link_to like_recipe_path(@recipe, like: false), method: :post do %>
+            <i class="fa fa-thumbs-o-down"></i> <%= @recipe.thumbs_down_total %>
+          <% end %>
+        </div>
+        <br>
       </div>
     </div>
   </div>
