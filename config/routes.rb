@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   
   root 'pages#home'
   
-  get '/home', to: 'pages#home'
-  
   # get '/recipes', to: 'recipes#index'
   # get '/recipes/new', to: 'recipes#new', as: 'new_recipe'
   # post '/recipes', to: 'recipes#create'
@@ -18,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :chefs , except: [:new]
+  get 'signup', to: 'chefs#new'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

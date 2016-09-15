@@ -1,21 +1,23 @@
 <div class="container">
+    
+  <div align="center">
+    <h2>Chef <%= @chef.chefname %></h2>
+    <%= gravatar_for(@chef, size: 100) %>
+  </div>
   
-  <div align="center"><%= will_paginate %></div>
+  <div align="center">
+    <h2><small>Chef <%= @chef.chefname %>'s Recipes</small></h2>
+    <%= will_paginate @recipes %>
+  </div>
   
   <div class="col-md-8 col-md-offset-2 stream">
-    <% @recipes.each do |recipe| %>
+  <% @recipes.each do |recipe| %>
     <section class="recipe-item">
       <div class="row">
-        
-        <div class="col-md-1">
-          <%= link_to gravatar_for(recipe.chef, size: 50), chef_path(recipe.chef) %>
-        </div>
-        
-        <div class="col-md-11">
+        <div class="col-md-12">
           <%= link_to "<i class=\"fa fa-trash-o\"></i>".html_safe, recipe_path(recipe), method: :delete, 
                                                         data: {confirm: "Are you sure you want to delete the recipe?"}, 
                                                         class: "btn btn-sm btn-danger pull-right" %>
-          <h4><small>@<%= recipe.chef.chefname %></small></h4>
           <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
           <h3><small><%= recipe.summary %></small></h3>
           <small><%= time_ago_in_words(recipe.created_at) %> ago</small>
@@ -29,14 +31,13 @@
               <i class="fa fa-thumbs-o-down"></i> <%= recipe.thumbs_down_total %>
             <% end %>
           </div>
-          
-          <br>
         </div>
-        
       </div>
     </section>
-    <% end %>
+  <% end %>
   </div>
   
-  <div align="center"><%= will_paginate %></div>
+  <div align="center">
+    <%= will_paginate @recipes %>
+  </div>
 </div>

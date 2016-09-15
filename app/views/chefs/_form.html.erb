@@ -1,0 +1,26 @@
+<%= render 'shared/errors', obj: @chef %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+  <%= form_for @chef do |f| %>
+  
+    <div class="form-group">
+      <label for=""><%= f.label :chefname %></label>
+      <%= f.text_field :chefname, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+      <label for=""><%= f.label :email %></label>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+      <label for=""><%= f.label :password %></label>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+    
+    <%= f.submit(@chef.new_record? ? "Register" : "Edit Chef", class: "btn btn-success") %>
+    
+  <% end %>
+  </div>
+</div>

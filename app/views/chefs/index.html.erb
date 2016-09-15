@@ -1,0 +1,30 @@
+<div class="container">
+  
+  <div align="center"><%= will_paginate %></div>
+  
+  <div class="col-md-8 col-md-offset-2 stream">
+    <% @chefs.each do |chef| %>
+    <section class="recipe-item">
+      <div class="row">
+        
+        <div class="col-md-1">
+          <%= link_to gravatar_for(chef, size: 50), chef_path(chef) %>
+        </div>
+        
+        <div class="col-md-11">
+          <%= link_to "<i class=\"fa fa-trash-o\"></i>".html_safe, chef_path(chef), method: :delete, 
+                                                        data: {confirm: "Are you sure you want to delete the chef?"}, 
+                                                        class: "btn btn-sm btn-danger pull-right" %>
+          <h4><small>@<%= chef.chefname %></small></h4>
+          <small>Member <%= time_ago_in_words(chef.created_at) %> ago</small>
+          
+          <br>
+        </div>
+        
+      </div>
+    </section>
+    <% end %>
+  </div>
+  
+  <div align="center"><%= will_paginate %></div>
+</div>
