@@ -1,5 +1,6 @@
 class ChefsController < ApplicationController
   before_action :set_chef, only: [:show, :edit, :update]
+  before_action :require_user, only: [:show, :index]
   before_action :require_same_user, only: [:edit, :update]
   
   def index
@@ -30,7 +31,7 @@ class ChefsController < ApplicationController
   def update
     if @chef.update(chef_params)
       flash[:success] = "Your profile has been updated!"
-      redirect_to recipes_path
+      redirect_to chef_path(@chef)
     else
       render 'edit'
     end
