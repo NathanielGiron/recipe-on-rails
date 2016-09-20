@@ -1,6 +1,6 @@
 class ChefsController < ApplicationController
   before_action :set_chef, only: [:show, :edit, :update]
-  before_action :require_user, only: [:show, :index]
+  before_action :require_user, except: [:show, :index, :new, :create]
   before_action :require_same_user, only: [:edit, :update]
   
   def index
@@ -15,7 +15,7 @@ class ChefsController < ApplicationController
     @chef = Chef.new(chef_params)
     if @chef.save
       flash[:success] = "Your account has been created!"
-      redirect_to recipes_path
+      redirect_to chef_path(@chef)
     else
       render 'new'
     end
